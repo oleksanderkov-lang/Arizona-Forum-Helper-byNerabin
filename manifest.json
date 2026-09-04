@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Arizona Forum Helper",
+  "version": "4.0",
+  "description": "Помощник для форума Arizona RP",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://forum.arizona-rp.com/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "world": "ISOLATED",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://forum.arizona-rp.com/*"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "rules.js",
+        "refuse_rules.js",
+        "templates.js",
+        "visuals.js",
+        "content.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_end"
+    }
+  ]
+}

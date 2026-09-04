@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --panel: rgba(25, 25, 30, 0.9);
+            --accent: #3498db;
+            --text: #ffffff;
+            --text-muted: #8a8a9d;
+            --border: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(10, 10, 15, 0.6);
+            --btn-grad: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            --btn-grad-hover: linear-gradient(135deg, #346b8f 0%, #5c508a 100%);
+            --btn-success: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        }
+        body {
+            width: 360px;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden; 
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 24px; 
+        }
+        .header h3 {
+            margin: 0; 
+            font-size: 20px; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            text-shadow: 0 0 15px rgba(52, 152, 219, 0.4); 
+            letter-spacing: 1px; 
+        }
+        .header span {
+             color: var(--accent); 
+            }
+        .form-group { 
+            margin-bottom: 14px; 
+        }
+        label { 
+            display: block; 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            margin-bottom: 6px; 
+            font-weight: 700; 
+        }
+        input[type="text"], select, textarea { 
+            width: 100%; 
+            box-sizing: border-box; 
+            padding: 12px 14px; 
+            background: var(--input-bg); 
+            border: 1px solid var(--border); 
+            color: var(--text); 
+            border-radius: 10px; 
+            font-size: 13px; 
+            outline: none; 
+            transition: all 0.3s; 
+        }
+        input[type="text"]:focus, select:focus, textarea:focus { 
+            border-color: var(--accent); 
+            box-shadow: 0 0 12px rgba(52, 152, 219, 0.25); 
+            background: rgba(15, 15, 20, 0.8); 
+        }
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 12px; 
+        }
+        .toggle-container { 
+            display: flex; 
+            align-items: center; 
+            margin: 18px 0; 
+            background: var(--input-bg); 
+            padding: 12px 14px; 
+            border-radius: 10px; 
+            border: 1px solid var(--border); 
+        }
+        .toggle-switch { 
+            position: relative; 
+            display: inline-block; 
+            width: 40px; 
+            height: 22px; 
+            flex-shrink: 0; 
+        }
+        .toggle-switch input { 
+            opacity: 0; 
+            width: 0; 
+            height: 0; 
+        }
+        .slider { 
+            position: absolute; 
+            cursor: pointer; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background-color: rgba(255, 255, 255, 0.1); 
+            transition: .3s; 
+            border-radius: 22px; 
+        }
+        .slider:before { 
+            position: absolute; 
+            content: ""; 
+            height: 16px; 
+            width: 16px; 
+            left: 3px; 
+            bottom: 3px; 
+            background-color: var(--text-muted); 
+            transition: .3s; 
+            border-radius: 50%; 
+        }
+        input:checked + .slider { 
+            background-color: rgba(52, 152, 219, 0.2); 
+            border: 1px solid var(--accent);
+        }
+        input:checked + .slider:before { 
+            transform: translateX(18px); 
+            background-color: var(--accent); 
+            box-shadow: 0 0 10px var(--accent); 
+        }
+        .toggle-label { 
+            margin-left: 12px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            cursor: pointer; 
+        }
+        .theme-row { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            background: var(--input-bg); 
+            padding: 10px 14px; 
+            border-radius: 10px; 
+            border: 1px solid var(--border); 
+            margin-bottom: 24px; 
+        }
+        .color-picker-modern { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: rgba(0, 0, 0, 0.2); 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border); 
+        }
+        .modern-color-input { 
+            -webkit-appearance: none; 
+            appearance: none; 
+            border: none; 
+            width: 28px; 
+            height: 28px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            padding: 0; 
+            background: none; 
+        }
+        .modern-color-input::-webkit-color-swatch-wrapper { 
+            padding: 0; 
+        }
+        .modern-color-input::-webkit-color-swatch { 
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50%; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4); 
+        }
+        .reset-color-btn { 
+            background: none; 
+            border: none; 
+            color: var(--text-muted); 
+            font-size: 16px; 
+            cursor: pointer; 
+            padding: 0 4px; 
+            transition: 0.2s; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-left: 4px; 
+        }
+        .reset-color-btn:hover { 
+            color: var(--text); 
+            transform: rotate(-45deg); 
+        }
+        button#save { 
+            width: 100%; 
+            padding: 14px; 
+            background: var(--btn-grad); 
+            border: 1px solid var(--border); 
+            color: white; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 800; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
+            margin-top: 10px; 
+        }
+        button#save:hover { 
+            background: var(--btn-grad-hover); 
+            transform: translateY(-2px); 
+            border-color: rgba(52, 152, 219, 0.4); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+        }
+        button#save:active { 
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        button#save.success { 
+            background: var(--btn-success) !important; 
+            border-color: #2ecc71 !important; 
+        }
+        .hotkeys-grid { 
+            display: grid; 
+            grid-template-columns: auto 1fr; 
+            gap: 8px; align-items: center; 
+            margin-bottom: 14px; 
+        }
+        .hotkeys-grid select { 
+            padding: 8px; 
+            font-size: 12px; 
+        }
+        .tabs-container { 
+            display: flex; 
+            background: rgba(10, 10, 15, 0.8); 
+            border: 1px solid var(--border); 
+            padding: 5px; 
+            border-radius: 12px; 
+            margin-bottom: 20px; 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); 
+        }
+        .tab-btn { 
+            flex: 1; 
+            padding: 10px; 
+            background: transparent; 
+            color: var(--text-muted); 
+            cursor: pointer; 
+            text-align: center; 
+            font-size: 13px; 
+            font-weight: 600; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+            border: none; 
+            outline: none; 
+        }
+        .tab-btn:hover:not(.active) { 
+            color: var(--text); 
+            background: rgba(255, 255, 255, 0.05); 
+        }
+        .tab-btn.active { 
+            background: var(--accent); 
+            color: #fff; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2); 
+        }
+        
+        .tab-content { 
+            display: none; 
+            animation: ahFadeIn 0.3s ease forwards; 
+        }
+        .tab-content.active { 
+            display: block; 
+        }
+        @keyframes ahFadeIn { 
+            from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } 
+        }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="header"><h3>Arizona <span>Helper</span></h3></div>
+    
+    <div class="tabs-container">
+        <div class="tab-btn active" data-tab="main">Основные</div>
+        <div class="tab-btn" data-tab="hotkeys">Биндер</div>
+    </div>
+    
+    <div id="tab-main" class="tab-content active">
+        <div class="grid-2">
+            <div class="form-group"><label>Сервер</label><select id="server"><option value="Tucson">Tucson (02)</option><option value="Scottdale">Scottdale (03)</option><option value="Chandler">Chandler (04)</option><option value="Brainburg">Brainburg (05)</option></select></div>
+            <div class="form-group"><label>Пол</label><select id="gender"><option value="Male">Мужской</option><option value="Female">Женский</option></select></div>
+        </div>
+        <div class="grid-2">
+            <div class="form-group"><label>Ник (без _)</label><input type="text" id="nickname"></div>
+            <div class="form-group"><label>РП Ник (с _)</label><input type="text" id="nonrp"></div>
+        </div>
+        <div class="form-group"><label>Организация</label><input type="text" id="organization"></div>
+        <div class="grid-2">
+            <div class="form-group"><label>Должность (Кто?)</label><input type="text" id="rang"></div>
+            <div class="form-group"><label>Должность (От кого?)</label><input type="text" id="rangGenitive"></div>
+        </div>
+        <div class="form-group"><label>Подпись</label><input type="text" id="signature"></div>
+        <div class="form-group"><label>Discord Webhook</label><input type="text" id="discordWebhook"></div>
+        <label class="toggle-container" for="blurEnabled"><div class="toggle-switch"><input type="checkbox" id="blurEnabled"><span class="slider"></span></div><span class="toggle-label">Кинематографичное размытие</span></label>
+        <div class="theme-row">
+            <label style="margin:0;color:#fff;font-size:12px;">Основной цвет</label>
+            <div class="color-picker-modern">
+                <input type="color" id="themeColor" value="#3498db" class="modern-color-input">
+                <span class="color-hex-display">#3498DB</span>
+                <button id="resetColor" class="reset-color-btn" title="Сбросить цвет">↺</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-hotkeys" class="tab-content">
+        <div class="hotkeys-grid">
+            <label style="margin:0">F1</label><select id="hotkeyF1"></select>
+            <label style="margin:0">F2</label><select id="hotkeyF2"></select>
+            <label style="margin:0">F3</label><select id="hotkeyF3"></select>
+            <label style="margin:0">F4</label><select id="hotkeyF4"></select>
+            <label style="margin:0">F5</label><select id="hotkeyF5"></select>
+        </div>
+    </div>
+
+    <button id="save">Сохранить настройки</button>
+    <script src="popup.js"></script>
+</body>
+</html>
