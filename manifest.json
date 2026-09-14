@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Arizona Forum Helper",
-  "version": "4.0",
+  "name": "Arizona Helper",
+  "version": "5.0",
   "description": "Помощник для форума Arizona RP",
   "icons": {
     "16": "icon.png",
@@ -32,7 +32,10 @@
         "*://forum.arizona-rp.com/*"
       ],
       "css": [
-        "style.css"
+        "core.css",
+        "cards.css",
+        "buttons.css",
+        "modals.css"
       ],
       "js": [
         "rules.js",

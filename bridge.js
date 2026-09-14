@@ -1,31 +1,33 @@
 const defaultSettings = {
-    server: "Tucson",
     gender: "Male",
     nickname: "Nick Name",
-    NonRPnickname: "Nick_Name",
     organization: "LSPD",
-    rang: "Судья",
-    rangGenitive: "Судьи",
     signature: "byNerabin",
     discordWebhook: "",
     themeColor: "#3498db",
     themeTextColor: "#ffffff",
-    blurEnabled: true,
+    tagTextColor: "#ffffff",
+    pColor: "#3498db",
+    blurEnabled: false,
+    blurIntensity: 15,
     particlesEnabled: true,
-    bgGlowEnabled: true,
+    customBgEnabled: true,
+    pFading: true,
     pShape: "circle",
     pEmojiText: "🌸,✨,🔥",
     pLines: true,
     pCount: 70,
     pSpeed: 0.5,
-    pColor: "#3498db",
     pSize: 3,
+    transparency: 15, /* ОДИН ПОЛЗУНОК ПРОЗРАЧНОСТИ ДЛЯ ВСЕГО */
+    threadCols: 2,
     hotkeyF1: "inReview",
     hotkeyF2: "transferred",
     hotkeyF3: "wrongFormat",
     hotkeyF4: "verdict",
     hotkeyF5: "refuse",
-    customTemplates: []
+    customTemplates: [],
+    punishmentHistory: []
 };
 
 chrome.storage.local.get(defaultSettings, function(items) {
