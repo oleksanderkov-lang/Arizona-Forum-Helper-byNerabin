@@ -9,6 +9,7 @@ const defaultSettings = {
     tagTextColor: "#ffffff",
     pColor: "#3498db",
     blurEnabled: false,
+    oldStyleEnabled: false,
     blurIntensity: 15,
     particlesEnabled: true,
     customBgEnabled: true,
@@ -19,7 +20,7 @@ const defaultSettings = {
     pCount: 70,
     pSpeed: 0.5,
     pSize: 3,
-    transparency: 15, /* ОДИН ПОЛЗУНОК ПРОЗРАЧНОСТИ ДЛЯ ВСЕГО */
+    transparency: 15,
     threadCols: 2,
     hotkeyF1: "inReview",
     hotkeyF2: "transferred",

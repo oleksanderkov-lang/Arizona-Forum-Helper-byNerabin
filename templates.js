@@ -69,7 +69,13 @@ window.AH_TEMPLATES = (function() {
             verdict: {
                 title: 'Форма Вердикта (С правилом)',
                 needsVerdictForm: true,
-                text: function(punishmentsHtml, ruleText, logLine) {
+                text: function(punishmentsHtml, ruleText, logLine, isShortReply) {
+                    // ЕСЛИ ВКЛЮЧЕН ПОЛЗУНОК "Скрытый ответ"
+                    if (isShortReply) {
+                        return `[CENTER][FONT=verdana][SIZE=5]<p>Здравствуйте.</p><br><p>Закрыто.</p>[/SIZE][/FONT][/CENTER]`;
+                    }
+                    
+                    // СТАНДАРТНЫЙ ОТВЕТ (Если ползунок выключен)
                     let res = `[CENTER][FONT=verdana][SIZE=5]<p>Здравствуйте.</p>${punishmentsHtml}`;
                     if (logLine) {
                         res += `<p>[QUOTE]${logLine}[/QUOTE]</p>`;

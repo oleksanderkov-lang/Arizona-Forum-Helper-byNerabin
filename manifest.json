@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Arizona Helper",
-  "version": "5.0",
+  "version": "5.1",
   "description": "Помощник для форума Arizona RP",
   "icons": {
     "16": "icon.png",
@@ -38,11 +38,14 @@
         "modals.css"
       ],
       "js": [
-        "rules.js",
+        "visuals.js",
+        "utils.js",
+        "database.js",
+        "modals.js",
+        "xenforo.js",
         "refuse_rules.js",
         "templates.js",
-        "visuals.js",
-        "content.js"
+        "main.js"
       ],
       "world": "MAIN",
       "run_at": "document_end"

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const textFields = ['nickname', 'organization', 'signature', 'discordWebhook', 'pEmojiText'];
-    const checkFields = ['blurEnabled', 'customBgEnabled', 'particlesEnabled', 'pFading', 'pLines'];
+    const checkFields = ['blurEnabled', 'customBgEnabled', 'particlesEnabled', 'pFading', 'pLines', 'oldStyleEnabled'];
     const rangeFields = ['pSize', 'pCount', 'pSpeed', 'transparency', 'threadCols', 'blurIntensity'];
     const colorFields = ['themeColor', 'themeTextColor', 'pColor'];
     const hotkeysIds = ['hotkeyF1', 'hotkeyF2', 'hotkeyF3', 'hotkeyF4', 'hotkeyF5'];
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const defaultSettings = {
         nickname: "Nick Name", organization: "LSPD", signature: "byNerabin", discordWebhook: "",
         themeColor: "#3498db", themeTextColor: "#ffffff", pColor: "#3498db",
-        blurEnabled: false, blurIntensity: 15, particlesEnabled: true, customBgEnabled: true, pFading: true,
+        blurEnabled: false, blurIntensity: 15, particlesEnabled: true, customBgEnabled: true, pFading: true, oldStyleEnabled: false,
         pShape: "circle", pEmojiText: "🌸,✨,🔥", pLines: true, pCount: 70, pSpeed: 0.5, pSize: 3,
         transparency: 15, threadCols: 2, customTemplates: [],
         hotkeyF1: "inReview", hotkeyF2: "transferred", hotkeyF3: "wrongFormat", hotkeyF4: "verdict", hotkeyF5: "refuse"

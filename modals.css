@@ -251,3 +251,50 @@ form[action="/search/search"] .iconic:hover .iconic-label::before { border-color
 .overlay[data-url*="/edit-history/"] textarea.input:focus { border-color: var(--ah-accent) !important; box-shadow: 0 0 10px var(--ah-glow) !important; outline: none !important; }
 .overlay[data-url*="/edit-history/"] .block-footer { background: #141419 !important; border-top: 1px solid #333 !important; padding: 16px !important; display: flex !important; justify-content: flex-end !important; align-items: center !important; }
 .overlay[data-url*="/edit-history/"] .block-footer-controls { display: flex !important; align-items: center !important; width: 100% !important; }
+
+.tooltip--selectToQuote .tooltip-content {
+    background: rgba(20, 20, 25, 0.55) !important; 
+    backdrop-filter: blur(12px) saturate(180%) !important; 
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6) !important;
+    padding: 6px 12px !important;
+}
+
+/* Стилизация самой ссылки внутри */
+.tooltip--selectToQuote .tooltip-content a {
+    color: #cfcfcf !important;
+    font-weight: 600 !important;
+    transition: color 0.2s ease !important;
+}
+
+.tooltip--selectToQuote .tooltip-content a:hover {
+    color: var(--ah-accent) !important;
+    text-shadow: 0 0 8px var(--ah-glow) !important;
+}
+
+.tooltip--selectToQuote .tooltip-arrow {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* ПОЛЗУНОК ДЛЯ F4 (КОРОТКИЙ ОТВЕТ) */
+.ah-f4-toggle-wrap { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 14px; 
+    cursor: pointer; 
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.ah-f4-toggle { position: relative; width: 36px; height: 20px; flex-shrink: 0; }
+.ah-f4-toggle input { display: none; }
+.ah-f4-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.1); border-radius: 20px; transition: 0.3s; }
+.ah-f4-slider::before { content: ""; position: absolute; height: 14px; width: 14px; left: 3px; bottom: 3px; background: #8a8a9d; border-radius: 50%; transition: 0.3s; }
+.ah-f4-toggle input:checked + .ah-f4-slider { background: rgba(52, 152, 219, 0.2); border: 1px solid var(--ah-accent, #3498db); }
+.ah-f4-toggle input:checked + .ah-f4-slider::before { transform: translateX(16px); background: var(--ah-accent, #3498db); box-shadow: 0 0 10px var(--ah-accent, #3498db); }
+.ah-f4-toggle-text { font-size: 13px; color: #fff; font-weight: 600; }

@@ -349,6 +349,13 @@
             <label style="margin:0">F3</label><div class="custom-select" id="custom-hotkeyF3"><div class="select-selected"><span>-- Ничего --</span><span>▼</span></div><div class="select-items"></div></div>
             <label style="margin:0">F4</label><div class="custom-select" id="custom-hotkeyF4"><div class="select-selected"><span>-- Ничего --</span><span>▼</span></div><div class="select-items"></div></div>
             <label style="margin:0">F5</label><div class="custom-select" id="custom-hotkeyF5"><div class="select-selected"><span>-- Ничего --</span><span>▼</span></div><div class="select-items"></div></div>
+            <label style="margin:0; color: var(--text-muted);">F6</label>
+            <div class="custom-select" style="pointer-events: none; opacity: 0.6;" title="Системная кнопка (нельзя изменить)">
+                <div class="select-selected" style="background: rgba(0, 0, 0, 0.2); border: 1px dashed var(--border);">
+                    <span>Меню шаблонов</span>
+                    <span>🔒</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -387,6 +394,10 @@
             <input type="range" id="blurIntensity" min="5" max="40" step="1">
         </div>
 
+        <label class="toggle-container" for="oldStyleEnabled">
+            <div class="toggle-switch"><input type="checkbox" id="oldStyleEnabled"><span class="slider"></span></div>
+            <span class="toggle-label">Старый стиль</span>
+        </label>
         <label class="toggle-container" for="customBgEnabled">
             <div class="toggle-switch"><input type="checkbox" id="customBgEnabled"><span class="slider"></span></div>
             <span class="toggle-label">Неоновые огни</span>
@@ -394,6 +405,7 @@
         <label class="toggle-container" for="particlesEnabled">
             <div class="toggle-switch"><input type="checkbox" id="particlesEnabled"><span class="slider"></span></div>
             <span class="toggle-label">Частицы</span>
+        </label>
         </label>
 
         <div class="grid-2">

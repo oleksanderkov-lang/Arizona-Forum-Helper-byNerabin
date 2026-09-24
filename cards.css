@@ -63,17 +63,6 @@
 .structItem-title > a:not(.labelLink):hover { color: var(--ah-accent) !important; }
 .structItem-title > span.label { display: none !important; }
 
-.structItem-title .labelLink .label {
-    display: inline-block !important; margin: 0 6px 4px 0 !important; padding: 4px 8px !important; border-radius: 6px !important; font-size: 10px !important; font-weight: 800 !important; text-transform: uppercase !important; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; color: #fff !important; vertical-align: middle !important;
-}
-
-.label--red { background: rgba(231, 76, 60, 0.95) !important; }
-.label--green, .label--lightGreen { background: rgba(39, 174, 96, 0.95) !important; }
-.label--blue { background: rgba(41, 128, 185, 0.95) !important; }
-.label--yellow { background: rgba(241, 196, 15, 0.95) !important; border-color: rgba(0,0,0,0.3) !important; }
-.label--orange { background: rgba(211, 84, 0, 0.95) !important; }
-.label--primary, .label--accent { background: rgba(142, 68, 173, 0.95) !important; }
-
 .structItem-extraInfo { position: absolute !important; top: 16px !important; right: 16px !important; display: flex !important; z-index: 10 !important; width: auto !important; margin: 0 !important; padding: 0 !important; }
 .structItem-cell--meta { position: absolute !important; top: 16px !important; right: 48px !important; display: flex !important; flex-direction: row !important; gap: 12px !important; align-items: center !important; z-index: 10 !important; width: auto !important; min-width: 0 !important; padding: 0 !important; }
 .structItem-cell--meta dl { margin: 0 !important; font-size: 11px !important; color: var(--ah-text-m) !important; display: flex !important; align-items: center !important; gap: 4px !important; width: auto !important; min-width: 0 !important; }
@@ -153,7 +142,9 @@
 .node-extra { position: absolute !important; right: 20px !important; top: 50% !important; transform: translateY(-50%) !important; bottom: auto !important; display: grid !important; grid-template-columns: 36px minmax(0, 220px) !important; grid-template-rows: auto auto !important; column-gap: 12px !important; row-gap: 5px !important; align-items: center !important; width: auto !important; padding-left: 20px !important; border-left: 1px solid var(--ah-border-fallback) !important; z-index: 5 !important; background: transparent !important; margin: 0 !important; }
 .node-extra-icon { grid-column: 1 !important; grid-row: 1 / span 2 !important; display: flex !important; justify-content: center !important; align-items: center !important; position: static !important; transform: none !important; margin: 0 !important; padding: 0 !important; }
 .node-extra-icon .avatar { width: 36px !important; height: 36px !important; border-radius: 50% !important; border: 1px solid var(--ah-border-fallback) !important; box-shadow: 0 4px 10px var(--ah-shadow) !important; }
-.node-extra-icon .avatar--default { background-color: var(--ah-surface) !important; color: var(--ah-text, var(--ah-text-default)) !important; font-size: 16px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+
+.node-extra-icon .avatar--default:not(.avatar--default--dynamic) { background-color: var(--ah-surface) !important; color: var(--ah-text, var(--ah-text-default)) !important; font-size: 16px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+.node-extra-icon .avatar--default--dynamic { display: flex !important; justify-content: center !important; align-items: center !important; font-size: 16px !important; }
 
 .node-extra-row:nth-of-type(1) { grid-column: 2 !important; grid-row: 1 !important; display: flex !important; align-items: center !important; gap: 6px !important; margin: 0 !important; padding: 0 !important; white-space: nowrap !important; overflow: hidden !important; }
 .node-extra-row:nth-of-type(1) .label { display: inline-block !important; padding: 2px 5px !important; border-radius: 4px !important; font-size: 9px !important; font-weight: 700 !important; text-transform: uppercase !important; line-height: 1.1 !important; margin: 0 !important; flex-shrink: 0 !important; color: #fff !important; }
